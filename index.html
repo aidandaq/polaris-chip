@@ -19,24 +19,103 @@
     polaris-chip {
       margin: 16px;
     }
+    my-card {
+      margin: 16px;
+      font-family: 'Georgia';
+    }
   </style>
   <title>polaris-chip / my-card</title>
 </head>
 
 <body>
-  <h1>polaris-chip</h1>
+  <h1>polaris-chip</h1> 
   <!-- this is going to do whatever the tag's defaults are -->
   <polaris-chip title="News of Record" link="https://psu.edu/"></polaris-chip>
-  <polaris-chip title="Faculty and Staff"></polaris-chip>
+  <polaris-chip title="Faculty and Staff" link="https://hax.psu.edu"></polaris-chip>
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
 
-  <h1>my-card</h1>
-  <my-card></my-card>
+  
+  <!---- <my-card></my-card>  -->
 
+  <div class="control-wrapper">
+    <button class="duplicate">Clone Card</button>
+    <button id="bg-change">Change background</button>
+    <button id="change-title">Change Title</button>
+    <button id="change-image">Change Image</button>
+    <button id="delete-card">Delete Card</button>
+   
+    
+  <h1>my-card</h1>
+  <my-card image="https://www.motortrend.com/uploads/sites/5/2014/10/2012-Honda-Accord-SE-sedan-front-three-quarter.jpg" 
+  link="https://www.motortrend.com/features/top-20-most-popular-used-cars-in-the-u-s/" 
+  fancy>
+    <p>Click here for used cars near you</p>
+  </my-card>
+
+  <my-card image="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" 
+  link="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3D3DumAK5T6P4&ved=2ahUKEwjfxvK-guGIAxWwFFkFHYw9CeoQtwJ6BAgLEAI&usg=AOvVaw1sTiPI5q_xSQuHRWV0pO3j" 
+   >
+  <p>Click here for funny cat videos!</p>
+  </my-card>
+
+  <my-card image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--1MJsy7_DWpEDHBVdc8L7Vn-neqF-M_MyA&s" 
+  link="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwiepcX2guGIAxVrFlkFHVp_HXwQ78AJegQIEBAB&usg=AOvVaw0aHtehaphMhOCAkCydRLZU" 
+   >
+  <p>Click here Burger King near you!</p>
+</my-card>
+
+  <my-card image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNAaJQJum6GgYqytfKggAwhRlMCZ2nQMvmA&s" 
+  link="https://www.steelers.com" 
+   >
+  <p>Click here for the best NFL team!</p>
+</my-card>
+  
+  <my-card image="https://www.shyamh.com/images/blog/music.jpg" 
+  link="https://open.spotify.com/artist/6zFYqv1mOsgBRQbae3JJ9e?si=804d633e57b54c81" 
+   >
+  <p>Click here for the greatest musical artist of all time!</p>
+</my-card>
+  
+</div>
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
+
+  <script> 
+    let cloneCount = 0; // Initialize a counter for the number of clones
+    const maxClones = 10; // Set the maximum number of clones
+
+    document.querySelector('.duplicate').addEventListener('click', function(event) {
+      if (cloneCount < maxClones) { // Check if the clone limit has been reached
+      const newCard = document.querySelector('my-card').cloneNode(true);
+      document.body.appendChild(newCard);
+      cloneCount++; // Increment the counter for each clone
+      } else {
+      alert('Maximum number (10) of clones reached.'); // Notify when limit is reached
+             }
+});
+
+document.querySelector('#change-title').addEventListener('click', function(event) {
+  document.querySelector('#BJ').innerHTML = "<em>HTML is SO FUN!</em>";
+});
+             
+document.querySelector('#change-image').addEventListener('click', function(event) {
+  document.querySelector('.image1').src = "https://github.com/elmsln.png";
+});                                                       
+
+document.querySelector('#bg-change').addEventListener('click', function(event){
+  document.querySelector('.card').classList.toggle('fancy');
+});
+
+
+document.querySelector('#delete-card').addEventListener('click', function(event) {
+  if (document.querySelectorAll('.card').length > 1) {
+    document.querySelector('.card:last-child').remove();
+  }
+});
+  </script>
+
 </body>
 
 </html>
