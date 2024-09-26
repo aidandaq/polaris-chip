@@ -47,31 +47,31 @@
    
     
   <h1>my-card</h1>
-  <my-card image="https://www.motortrend.com/uploads/sites/5/2014/10/2012-Honda-Accord-SE-sedan-front-three-quarter.jpg" 
+  <my-card name="Used Cars" image="https://www.motortrend.com/uploads/sites/5/2014/10/2012-Honda-Accord-SE-sedan-front-three-quarter.jpg" 
   link="https://www.motortrend.com/features/top-20-most-popular-used-cars-in-the-u-s/" 
-  fancy>
+  fancy class="clone-card">
     <p>Click here for used cars near you</p>
   </my-card>
 
-  <my-card image="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" 
+  <my-card name="Funny Cats!" image="https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg" 
   link="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3D3DumAK5T6P4&ved=2ahUKEwjfxvK-guGIAxWwFFkFHYw9CeoQtwJ6BAgLEAI&usg=AOvVaw1sTiPI5q_xSQuHRWV0pO3j" 
    >
   <p>Click here for funny cat videos!</p>
   </my-card>
 
-  <my-card image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--1MJsy7_DWpEDHBVdc8L7Vn-neqF-M_MyA&s" 
+  <my-card name="Burger King!" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--1MJsy7_DWpEDHBVdc8L7Vn-neqF-M_MyA&s" 
   link="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwiepcX2guGIAxVrFlkFHVp_HXwQ78AJegQIEBAB&usg=AOvVaw0aHtehaphMhOCAkCydRLZU" 
    >
   <p>Click here Burger King near you!</p>
 </my-card>
 
-  <my-card image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNAaJQJum6GgYqytfKggAwhRlMCZ2nQMvmA&s" 
+  <my-card name="FOOTBALL!" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiNAaJQJum6GgYqytfKggAwhRlMCZ2nQMvmA&s" 
   link="https://www.steelers.com" 
    >
   <p>Click here for the best NFL team!</p>
 </my-card>
   
-  <my-card image="https://www.shyamh.com/images/blog/music.jpg" 
+  <my-card name="Music!" image="https://www.shyamh.com/images/blog/music.jpg" 
   link="https://open.spotify.com/artist/6zFYqv1mOsgBRQbae3JJ9e?si=804d633e57b54c81" 
    >
   <p>Click here for the greatest musical artist of all time!</p>
@@ -97,21 +97,21 @@
 });
 
 document.querySelector('#change-title').addEventListener('click', function(event) {
-  document.querySelector('#BJ').innerHTML = "<em>HTML is SO FUN!</em>";
+  document.querySelector('.clone-card').shadowRoot.querySelector('#BJ').innerHTML = "<em>HTML is SO FUN!</em>";
 });
              
 document.querySelector('#change-image').addEventListener('click', function(event) {
-  document.querySelector('.image1').src = "https://github.com/elmsln.png";
+  document.querySelector('.clone-card').shadowRoot.querySelector('.image1').src = "https://github.com/elmsln.png";
 });                                                       
 
 document.querySelector('#bg-change').addEventListener('click', function(event){
-  document.querySelector('.card').classList.toggle('fancy');
+  document.querySelector('.clone-card').shadowRoot.querySelector('.card').classList.toggle('fancy');
 });
 
 
 document.querySelector('#delete-card').addEventListener('click', function(event) {
-  if (document.querySelectorAll('.card').length > 1) {
-    document.querySelector('.card:last-child').remove();
+  if (document.querySelectorAll('.clone-card').length > 1) {
+    document.querySelector('.clone-card:last-child').remove();
   }
 });
   </script>

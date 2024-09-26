@@ -53,6 +53,12 @@ export class MyCard extends LitElement {
   text-align:center;
 
 }
+.fancy {
+  background-color: pink;
+  color: cyan;
+  border: 10px solid navy;
+  margin: 100px;
+}
 
 #button {
   margin: 8px;
